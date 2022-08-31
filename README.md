@@ -1,1 +1,2 @@
-# README-generator
+# README Generator CLI
+
