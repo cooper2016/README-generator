@@ -52,6 +52,7 @@ const questions = [
   },
 ];
 
+//return the badge of the correct license when called
 const renderLicenseBadge = (license) => {
   switch (license) {
     case "GPL-3.0":
