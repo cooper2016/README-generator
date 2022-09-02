@@ -28,14 +28,7 @@ const questions = [
     type: "list",
     message: "What is the license for you project?",
     name: "license",
-    choices: [
-      "GPL-3.0",
-      "MIT",
-      "Apache-2.0",
-      "BSD-2-Clause",
-      "BSD-3-Clause",
-      "BSD-4-Clause",
-    ],
+    choices: ["GPL-3.0", "MIT", "Apache-2.0", "BSD-2-Clause", "BSD-3-Clause"],
   },
   {
     type: "input",
@@ -59,6 +52,21 @@ const questions = [
   },
 ];
 
+const renderLicenseBadge = (license) => {
+  switch (license) {
+    case "GPL-3.0":
+      return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+    case "MIT":
+      return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+    case "Apache-2.0":
+      return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+    case "BSD-2-Clause":
+      return `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`;
+    case "BSD-3-Clause":
+      return `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
+  }
+};
+
 const generateREADME = ({
   title,
   description,
@@ -69,7 +77,8 @@ const generateREADME = ({
   test,
   username,
   email,
-}) => `# ${title}
+}) => `${renderLicenseBadge(license)}
+# ${title}
 
 ## Table of Contents
 
